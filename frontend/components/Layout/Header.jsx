@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Layout, Menu, Button, Drawer } from 'antd'
-import { MenuOutlined, HomeOutlined, UserOutlined, MailOutlined } from '@ant-design/icons'
+import { MenuOutlined, HomeOutlined, UserOutlined, MailOutlined, LogoutOutlined } from '@ant-design/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -29,12 +29,17 @@ const Header = () => {
     {
       key: 'about',
       icon: <UserOutlined />,
-      label: <Link href="/">About</Link>,
+      label: <Link href="/about">About</Link>,
     },
     {
       key: 'contact',
       icon: <MailOutlined />,
-      label: <Link href="/">Contact</Link>,
+      label: <Link href="/contact">Contact</Link>,
+    },
+    {
+      key: 'auth',
+      icon: <LogoutOutlined />,
+      label: <Link href="/auth">Login</Link>,
     },
   ]
 
@@ -93,8 +98,8 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Desktop Navigation - Float Right */}
-        <div className="hidden lg:flex flex-shrink-0 mr-10" style={{ minWidth: '400px' }}>
+        {/* Desktop Navigation - Fixed overflow issue */}
+        <div className="hidden lg:flex flex-shrink-0" style={{ minWidth: '500px' }}>
           <Menu
             mode="horizontal"
             items={menuItems}
@@ -105,7 +110,10 @@ const Header = () => {
               color: 'white',
               width: '100%',
               display: 'flex',
-              justifyContent: 'flex-end'
+              justifyContent: 'flex-end',
+              lineHeight: '70px',
+              overflow: 'visible',
+              marginRight:'65px'
             }}
             className="bg-transparent border-none desktop-menu"
           />
@@ -132,17 +140,16 @@ const Header = () => {
         closable={true}
         onClose={closeMobileMenu}
         open={mobileMenuVisible}
-        bodyStyle={{
-          background: 'linear-gradient(135deg, #2980B9, #1A5276)',
-          padding: 0,
-          
-         
-         
-        }}
-        headerStyle={{
-          background: 'linear-gradient(135deg, #2980B9, #1A5276)',
-          color: 'white',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+        styles={{
+          body: {
+            background: 'linear-gradient(135deg, #2980B9, #1A5276)',
+            padding: 0,
+          },
+          header: {
+            background: 'linear-gradient(135deg, #2980B9, #1A5276)',
+            color: 'white',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+          }
         }}
       >
         <Menu
@@ -153,113 +160,11 @@ const Header = () => {
             background: 'transparent',
             border: 'none',
             color: 'white',
-           
           }}
           className="mobile-menu"
         />
       </Drawer>
 
-      <style jsx>{`
-        .mobile-menu .ant-menu-item {
-          color: white !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-        }
-        
-        .mobile-menu .ant-menu-item:hover {
-          background-color: rgba(255, 255, 255, 0.1) !important;
-          color: #AED6F1 !important;
-        }
-        
-        .mobile-menu .ant-menu-item-selected {
-          background-color: rgba(255, 255, 255, 0.15) !important;
-          color: #AED6F1 !important;
-        }
-
-        .ant-menu-horizontal {
-          border-bottom: none !important;
-        }
-
-
-
-        .desktop-menu.ant-menu-horizontal {
-          display: flex !important;
-          flex-wrap: nowrap !important;
-          width: 100% !important;
-        }
-
-        .desktop-menu .ant-menu-item {
-          color: white !important;
-          border-bottom: 2px solid transparent !important;
-          flex-shrink: 0 !important;
-          white-space: nowrap !important;
-          display: flex !important;
-        }
-
-        .desktop-menu .ant-menu-item:hover {
-          color: #AED6F1 !important;
-          border-bottom: 2px solid #AED6F1 !important;
-        }
-
-        .desktop-menu .ant-menu-item-selected {
-          color: #AED6F1 !important;
-          border-bottom: 2px solid #AED6F1 !important;
-        }
-
-        .ant-menu-horizontal > .ant-menu-item {
-          color: white !important;
-          border-bottom: 2px solid transparent !important;
-        }
-
-        .ant-menu-horizontal > .ant-menu-item:hover {
-          color: #AED6F1 !important;
-          border-bottom: 2px solid #AED6F1 !important;
-        }
-
-        .ant-menu-horizontal > .ant-menu-item-selected {
-          color: #AED6F1 !important;
-          border-bottom: 2px solid #AED6F1 !important;
-        }
-
-        /* Completely disable overflow behavior */
-        .desktop-menu .ant-menu-overflow {
-          display: none !important;
-        }
-
-        .desktop-menu .ant-menu-overflow-item {
-          display: none !important;
-        }
-
-        .desktop-menu .ant-menu-overflow-item-rest {
-          display: none !important;
-        }
-
-        .desktop-menu .ant-menu-overflow-item-suffix {
-          display: none !important;
-        }
-
-        .desktop-menu .ant-menu-submenu-arrow {
-          display: none !important;
-        }
-
-        /* Force all items to be visible */
-        .desktop-menu .ant-menu-item-hidden {
-          display: flex !important;
-          visibility: visible !important;
-        }
-
-        .desktop-menu li {
-          display: flex !important;
-        }
-
-        /* Logo styling */
-        .ndimboni-logo {
-          border-radius: 50%;
-          border: 2px solid #AED6F1;
-          box-shadow: 0 0 10px rgba(41, 128, 185, 0.3);
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-        }
-      `}</style>
     </AntHeader>
   )
 }

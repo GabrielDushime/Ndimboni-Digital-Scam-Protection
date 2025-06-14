@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
       <Content 
         style={{ 
           backgroundColor: '#EBF5FB',
-          minHeight: 'calc(100vh - 140px)', // Adjust based on header and footer height
+          minHeight: 'calc(100vh - 140px)', 
           padding: 0,
         }}
       >

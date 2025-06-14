@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Layout from '../components/Layout/Layout'
 import Home from '../components/Layout/Home'
 
+
 export default function IndexPage() {
   return (
     <Layout>
@@ -10,6 +11,7 @@ export default function IndexPage() {
         <meta name="description" content="Ndimboni- Modern Web Application" />
       </Head>
       <Home />
+      
     </Layout>
   )
 }
