@@ -24,7 +24,7 @@ Ndimboni is an AI-powered platform designed to combat digital scams in Rwanda by
 | Name                        | Registration Number | Role           |
 | --------------------------- | ------------------- | -------------- |
 | **MUNEZERO BAGIRA Sostene** | 221000677           | Lead Developer |
-| **DUSHIME Gabriel**         | 221016855           | Lead Developer |
+| **DUSHIME Gabriel**         | 221016855           | Co-Developer   |
 
 ### 👨‍🏫 Supervisors
 
@@ -135,15 +135,13 @@ backend/
 ```
 
 ### Backend
-
 - **Framework**: NestJS
 - **Language**: TypeScript
 - **Runtime**: Node.js
 - **Package Manager**: npm/yarn
 - **Testing**: Jest (built-in)
 - **Code Quality**: ESLint + Prettier
-
-````
+```
 
 ## 🎨 Design System
 
@@ -188,7 +186,7 @@ NEXT_PUBLIC_GA_ID=
 # Feature Flags
 NEXT_PUBLIC_ENABLE_AI_DETECTION=true
 NEXT_PUBLIC_ENABLE_REPORTING=true
-````
+```
 
 ### Ant Design Theme
 
